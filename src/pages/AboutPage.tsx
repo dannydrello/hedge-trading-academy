@@ -79,15 +79,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             {/* Story Text */}
             <div className="lg:col-span-7 space-y-6">
               <div className="space-y-2">
-                <span className="text-xs font-mono uppercase tracking-widest text-slate-400">
+                <span className="text-xs font-mono uppercase tracking-widest text-slate-500">
                   Founder Journey
                 </span>
-                <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+                <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
                   From Retail Confusion to Institutional Mastery
                 </h2>
               </div>
 
-              <div className="space-y-4 text-slate-300 text-base sm:text-lg leading-relaxed">
+              <div className="space-y-4 text-slate-700 text-base sm:text-lg leading-relaxed">
                 <p>
                   I started my trading journey as a self-taught retail trader attempting to learn from endless videos by &ldquo;gurus.&rdquo; The more I studied, the more confused I became. Although I had some success, I also experienced several heartbreaking losses due to not fully understanding how markets work.
                 </p>
@@ -100,11 +100,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
                   I now have over six years of professional trading experience, have mentored a large number of traders, and have navigated multiple market cycles.
                 </p>
 
-                <p className="p-4 rounded-xl bg-blue-950/25 border-l-4 border-blue-500 text-slate-200 font-medium">
+                <p className="p-4 rounded-xl bg-blue-50 border-l-4 border-blue-500 text-slate-800 font-medium">
                   Through these experiences, I learned that most traders fail not because they lack intelligence, but because they lack proper guidance, risk discipline, and accountability.
                 </p>
 
-                <p className="text-slate-400">
+                <p className="text-slate-600">
                   Hedge Trading Academy was founded to provide serious traders with institutional-grade mentorship, helping them avoid costly mistakes and build sustainable trading careers.
                 </p>
               </div>
@@ -117,12 +117,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
                 caption="Founder • Hedge Trading Academy • Ex-Pit Trader Mentored"
               />
 
-              <div className="rounded-xl border border-slate-800 bg-[#0d1017] p-5 space-y-3">
-                <div className="flex items-center gap-2 text-xs font-mono text-blue-400 uppercase tracking-wider font-bold">
+              <div className="rounded-xl border border-slate-200 bg-white p-5 space-y-3 shadow-sm">
+                <div className="flex items-center gap-2 text-xs font-mono text-blue-600 uppercase tracking-wider font-bold">
                   <Quote className="w-4 h-4" />
                   <span>The Core Philosophy</span>
                 </div>
-                <p className="text-sm text-slate-300 italic">
+                <p className="text-sm text-slate-700 italic">
                   &ldquo;Markets do not care about retail hope. They respond only to liquidity, positioning, and order flow. When you learn how to hedge, fear disappears.&rdquo;
                 </p>
               </div>
@@ -135,13 +135,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
       <section className="relative py-8" id="philosophy-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-            <span className="text-xs font-mono uppercase tracking-widest text-blue-400 bg-blue-950/50 px-3 py-1 rounded-full border border-blue-500/20">
+            <span className="text-xs font-mono uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
               Core Principles
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
               Our Trading Philosophy
             </h2>
-            <p className="text-slate-400 text-base sm:text-lg">
+            <p className="text-slate-600 text-base sm:text-lg">
               Our approach is grounded in institutional best practices
             </p>
           </div>
@@ -152,22 +152,22 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               return (
                 <div
                   key={item.title}
-                  className="rounded-2xl border border-[#1d2230] bg-gradient-to-b from-[#11141e] to-[#0a0c10] p-8 space-y-4 hover:border-blue-500/40 transition-all duration-200 shadow-xl"
+                  className="rounded-2xl border border-slate-200 bg-white p-8 space-y-4 hover:border-blue-300 hover:shadow-md transition-all duration-200 shadow-sm"
                 >
                   <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-xl bg-blue-600/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">
+                    <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-slate-100 text-slate-600 border border-slate-200">
                       {item.tag}
                     </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
                     {item.title}
                   </h3>
 
-                  <p className="text-slate-300 text-base leading-relaxed">
+                  <p className="text-slate-600 text-base leading-relaxed">
                     {item.description}
                   </p>
                 </div>

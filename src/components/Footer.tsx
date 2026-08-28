@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <h4 className="text-white text-xs font-bold uppercase tracking-widest font-mono mb-3">
                 Follow The Academy
               </h4>
-              <SocialLinks />
+              <SocialLinks variant="dark" />
             </div>
           </div>
 
