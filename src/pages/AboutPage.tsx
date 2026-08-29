@@ -8,7 +8,6 @@ import {
   Target,
   ArrowRight,
   Quote,
-  ImageIcon,
 } from 'lucide-react';
 
 interface AboutPageProps {
@@ -93,13 +92,17 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               </div>
             </div>
 
-            {/* Founder Photo (awaiting image) */}
+            {/* Founder Photo */}
             <div className="lg:col-span-5 space-y-4">
               <div
                 id="founder-photo-slot"
-                className="rounded-xl border border-slate-800 bg-slate-950/60 aspect-square flex items-center justify-center"
+                className="rounded-xl border border-slate-800 overflow-hidden aspect-square"
               >
-                <ImageIcon className="w-10 h-10 text-slate-700" />
+                <img
+                  src="/founder.png"
+                  alt="Founder of Hedge Trading Academy at his trading desk"
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               <div className="rounded-xl border border-slate-800 bg-slate-950/60 p-5 space-y-3">

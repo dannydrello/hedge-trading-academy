@@ -175,6 +175,16 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
             Apply For One-To-One Mentorship
           </h1>
         </div>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 mt-10">
+          <div className="rounded-2xl overflow-hidden border border-slate-800">
+            <img
+              src="/mentorship.png"
+              alt="Hedge Trading Academy mentorship session"
+              className="w-full h-64 sm:h-96 object-cover"
+            />
+          </div>
+        </div>
       </section>
 
       {/* 2. WHO THIS IS FOR SECTION */}

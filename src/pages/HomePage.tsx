@@ -140,9 +140,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
           {/* Intro Paragraphs */}
           <div className="space-y-4 text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl mt-6">
-            <p>
-              Welcome to Hedge Trading Academy one-to-one mentorship. Whether you are a beginner looking to understand the fundamentals of hedging, an experienced trader considering new strategies, or an investor looking to protect your capital, our structured one-to-one mentorship programme is designed to help you trade with confidence.
-            </p>
+            <div
+              className="relative overflow-hidden rounded-xl border border-slate-800 bg-cover bg-center p-6 sm:p-8"
+              style={{ backgroundImage: "url('/homepage.png')" }}
+            >
+              <div className="absolute inset-0 bg-black/75" />
+              <p className="relative z-10">
+                Welcome to Hedge Trading Academy one-to-one mentorship. Whether you are a beginner looking to understand the fundamentals of hedging, an experienced trader considering new strategies, or an investor looking to protect your capital, our structured one-to-one mentorship programme is designed to help you trade with confidence.
+              </p>
+            </div>
             <p className="text-slate-400">
               What makes us different is that we teach pit logic combined with professional hedging strategy, rather than just academic theories. We will give you the skills to use a floor trader mindset to decide when to enter trades and the knowledge of how to apply hedging to manage trades. This will enable you to maintain total control of risk, manage volatility, and create a more consistent trading approach no matter where the market goes.
             </p>
