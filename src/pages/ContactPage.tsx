@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { NavigateFn } from '../types';
 import { SocialLinks } from '../components/SocialLinks';
 import {
-  Mail, Send, CheckCircle2, Shield
+  Mail, Phone, Send, CheckCircle2, Shield
 } from 'lucide-react';
+
+const CONTACT_EMAIL = 'hello@hedgetradingacademy.com';
+const CONTACT_PHONE_DISPLAY = '+44 7921 249547';
 
 interface ContactPageProps {
   onNavigate: NavigateFn;
@@ -22,6 +25,19 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.fullName || !formData.email || !formData.message) return;
+
+    const subject = `Website Inquiry: ${formData.inquiryType}`;
+    const body = [
+      `Full Name: ${formData.fullName}`,
+      `Email: ${formData.email}`,
+      `Phone: ${formData.phone || 'Not provided'}`,
+      `Inquiry Nature: ${formData.inquiryType}`,
+      '',
+      'Message:',
+      formData.message,
+    ].join('\n');
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
     setSubmitted(true);
   };
 
@@ -47,7 +63,17 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 </div>
                 <div>
                   <div className="text-xs uppercase text-slate-400">Email</div>
-                  <div className="text-sm font-semibold text-white mt-0.5">hello@hedgetradingacademy.com</div>
+                  <div className="text-sm font-semibold text-white mt-0.5">{CONTACT_EMAIL}</div>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="p-2.5 rounded-lg bg-blue-950/40 text-blue-400 border border-blue-500/30">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-xs uppercase text-slate-400">Phone</div>
+                  <div className="text-sm font-semibold text-white mt-0.5">{CONTACT_PHONE_DISPLAY}</div>
                 </div>
               </div>
 
@@ -66,9 +92,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                   <div className="w-16 h-16 rounded-full bg-emerald-950/40 border border-emerald-500 text-emerald-400 flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl font-extrabold text-white">Inquiry Received</h3>
+                  <h3 className="text-2xl font-extrabold text-white">Almost Done</h3>
                   <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong>{formData.fullName}</strong>. Your message has been routed to our admissions desk. An admissions director will review your notes and reply within 12 hours.
+                    Thank you, <strong>{formData.fullName}</strong>. Your email app should have opened with your message ready to send to <strong>{CONTACT_EMAIL}</strong> — just hit send there to complete your inquiry.
                   </p>
                   <div className="pt-6">
                     <button

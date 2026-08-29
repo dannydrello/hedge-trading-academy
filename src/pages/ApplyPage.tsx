@@ -16,6 +16,7 @@ import {
 
 const WHATSAPP_NUMBER = '447931379380';
 const WHATSAPP_DISPLAY = '+44 7931 379380';
+const APPLICATIONS_EMAIL = 'hello@hedgetradingacademy.com';
 
 interface ApplyPageProps {
   onNavigate: (page: PageId) => void;
@@ -127,6 +128,25 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
       } catch (err) {
         console.error('Local save error', err);
       }
+
+      const subject = `Mentorship Application (Ref: ${generatedRef}) — ${formData.fullName}`;
+      const body = [
+        `Application Reference: ${generatedRef}`,
+        '',
+        `Full Name: ${formData.fullName}`,
+        `Email: ${formData.email}`,
+        `Phone: ${formData.phone}`,
+        `Country: ${formData.country}`,
+        `Trading Experience: ${formData.tradingExperience}`,
+        '',
+        `Current Trading Challenges: ${formData.currentChallenges}`,
+        '',
+        `Why Mentorship: ${formData.whyMentorship}`,
+        '',
+        `Current Account Size: ${formData.currentAccountSize || 'Not provided'}`,
+        `Trading Goals: ${formData.tradingGoals || 'Not provided'}`,
+      ].join('\n');
+      window.location.href = `mailto:${APPLICATIONS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }, 900);
   };
 
@@ -506,7 +526,7 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                     Application Received
                   </h3>
                   <p className="text-slate-300 text-sm sm:text-base max-w-md mx-auto">
-                    Thank you, <strong className="text-white">{formData.fullName}</strong>. Your application for Hedge Trading Academy one-to-one mentorship has been logged.
+                    Thank you, <strong className="text-white">{formData.fullName}</strong>. Your email app should have opened with your application ready to send to <strong className="text-white">{APPLICATIONS_EMAIL}</strong> — just hit send there to complete it.
                   </p>
                 </div>
 
