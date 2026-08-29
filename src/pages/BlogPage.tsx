@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { BlogPost, NavigateFn } from '../types';
 import {
   Search, BookOpen, Clock, Calendar, ArrowRight, ArrowLeft,
-  Tag, Share2, Check, Lock, PlusCircle, Sparkles, Filter, ChevronRight
+  Tag, Share2, Check, Lock, PlusCircle
 } from 'lucide-react';
 
 interface BlogPageProps {
@@ -62,17 +62,17 @@ export const BlogPage: React.FC<BlogPageProps> = ({
   // If viewing a single post
   if (activePost) {
     return (
-      <div className="py-12 lg:py-16 bg-white min-h-screen">
+      <div className="py-12 lg:py-16 bg-black min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back button & Admin tools */}
-          <div className="flex items-center justify-between mb-8 pb-6 border-b border-slate-200">
+          <div className="flex items-center justify-between mb-8 pb-6 border-b border-slate-800">
             <button
               id="blog-back-btn"
               onClick={() => {
                 setSelectedPostId(null);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-blue-600 transition group"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 hover:text-blue-400 transition group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
               <span>Back to Research & Articles</span>
@@ -81,16 +81,16 @@ export const BlogPage: React.FC<BlogPageProps> = ({
             <div className="flex items-center gap-3">
               <button
                 onClick={handleShare}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-xs font-medium text-slate-600 hover:text-slate-900 hover:border-slate-300 transition"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-xs font-medium text-slate-300 hover:text-white transition"
               >
-                {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5" />}
+                {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Share2 className="w-3.5 h-3.5" />}
                 <span>{copied ? 'Link Copied' : 'Share'}</span>
               </button>
 
               {isAdminLoggedIn && (
                 <button
                   onClick={() => onNavigate('admin')}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 border border-blue-200 text-xs font-medium text-blue-600 hover:bg-blue-100 transition"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-950/40 border border-blue-500/30 text-xs font-medium text-blue-400 hover:bg-blue-950/70 transition"
                 >
                   <Lock className="w-3.5 h-3.5" />
                   <span>Edit in Admin</span>
@@ -102,44 +102,44 @@ export const BlogPage: React.FC<BlogPageProps> = ({
           {/* Article Header */}
           <div className="space-y-4 mb-8">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-blue-50 text-blue-600 border border-blue-200">
+              <span className="px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-blue-950/40 text-blue-400 border border-blue-500/30">
                 {activePost.category}
               </span>
-              <span className="text-xs text-slate-400 font-mono">•</span>
-              <span className="text-xs text-slate-500 flex items-center gap-1 font-mono">
-                <Calendar className="w-3.5 h-3.5 text-slate-400" />
+              <span className="text-xs text-slate-500">•</span>
+              <span className="text-xs text-slate-400 flex items-center gap-1">
+                <Calendar className="w-3.5 h-3.5 text-slate-500" />
                 {activePost.date}
               </span>
-              <span className="text-xs text-slate-400 font-mono">•</span>
-              <span className="text-xs text-slate-500 flex items-center gap-1 font-mono">
-                <Clock className="w-3.5 h-3.5 text-slate-400" />
+              <span className="text-xs text-slate-500">•</span>
+              <span className="text-xs text-slate-400 flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5 text-slate-500" />
                 {activePost.readTime}
               </span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
               {activePost.title}
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-700 font-normal leading-relaxed border-l-2 border-blue-500 pl-4 py-1 italic bg-blue-50/60 rounded-r-lg">
+            <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed border-l-2 border-blue-500 pl-4 py-1 italic bg-blue-950/20 rounded-r-lg">
               {activePost.excerpt}
             </p>
 
             {/* Author bar */}
             <div className="flex items-center gap-3 pt-4">
-              <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 font-bold text-sm">
+              <div className="w-10 h-10 rounded-full bg-blue-950/40 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-sm">
                 {activePost.author.charAt(0)}
               </div>
               <div>
-                <div className="text-sm font-bold text-slate-900">{activePost.author}</div>
-                <div className="text-xs text-slate-500">{activePost.authorRole}</div>
+                <div className="text-sm font-bold text-white">{activePost.author}</div>
+                <div className="text-xs text-slate-400">{activePost.authorRole}</div>
               </div>
             </div>
           </div>
 
           {/* Featured Cover Image */}
           {activePost.coverImage && (
-            <div className="rounded-xl overflow-hidden border border-slate-200 mb-10 shadow-lg bg-slate-100">
+            <div className="rounded-xl overflow-hidden border border-slate-800 mb-10 shadow-lg bg-slate-900">
               <img
                 src={activePost.coverImage}
                 alt={activePost.title}
@@ -152,19 +152,19 @@ export const BlogPage: React.FC<BlogPageProps> = ({
           )}
 
           {/* Body Content */}
-          <div className="prose max-w-none space-y-6 text-slate-700 text-base sm:text-lg leading-relaxed">
+          <div className="prose prose-invert max-w-none space-y-6 text-slate-300 text-base sm:text-lg leading-relaxed">
             {activePost.content.split('\n\n').map((paragraph, idx) => {
               // Markdown style headers
               if (paragraph.startsWith('### ')) {
                 return (
-                  <h3 key={idx} className="text-xl sm:text-2xl font-bold text-slate-900 pt-6 pb-2 border-b border-slate-200">
+                  <h3 key={idx} className="text-xl sm:text-2xl font-bold text-white pt-6 pb-2 border-b border-slate-800">
                     {paragraph.replace('### ', '')}
                   </h3>
                 );
               }
               if (paragraph.startsWith('## ')) {
                 return (
-                  <h2 key={idx} className="text-2xl sm:text-3xl font-extrabold text-slate-900 pt-8 pb-3 border-b border-slate-200">
+                  <h2 key={idx} className="text-2xl sm:text-3xl font-extrabold text-white pt-8 pb-3 border-b border-slate-800">
                     {paragraph.replace('## ', '')}
                   </h2>
                 );
@@ -172,7 +172,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
               if (paragraph.startsWith('- ')) {
                 const items = paragraph.split('\n');
                 return (
-                  <ul key={idx} className="space-y-2 my-4 list-disc pl-6 text-slate-700">
+                  <ul key={idx} className="space-y-2 my-4 list-disc pl-6 text-slate-300">
                     {items.map((item, itemIdx) => (
                       <li key={itemIdx}>
                         {item.replace(/^- /, '')}
@@ -182,7 +182,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                 );
               }
               return (
-                <p key={idx} className="text-slate-700 whitespace-pre-line">
+                <p key={idx} className="text-slate-300 whitespace-pre-line">
                   {paragraph}
                 </p>
               );
@@ -191,13 +191,13 @@ export const BlogPage: React.FC<BlogPageProps> = ({
 
           {/* Additional Gallery Pictures if available */}
           {activePost.additionalImages && activePost.additionalImages.length > 0 && (
-            <div className="mt-12 pt-8 border-t border-slate-200">
-              <h4 className="text-sm font-mono uppercase tracking-wider text-slate-500 mb-4">
+            <div className="mt-12 pt-8 border-t border-slate-800">
+              <h4 className="text-sm uppercase tracking-wider text-slate-400 mb-4">
                 Institutional Charts & Desk Visuals
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {activePost.additionalImages.map((imgUrl, imgIdx) => (
-                  <div key={imgIdx} className="rounded-lg overflow-hidden border border-slate-200 bg-slate-100">
+                  <div key={imgIdx} className="rounded-lg overflow-hidden border border-slate-800 bg-slate-900">
                     <img
                       src={imgUrl}
                       alt={`Article reference ${imgIdx + 1}`}
@@ -211,14 +211,14 @@ export const BlogPage: React.FC<BlogPageProps> = ({
 
           {/* Tags */}
           {activePost.tags && activePost.tags.length > 0 && (
-            <div className="mt-10 pt-6 border-t border-slate-200 flex flex-wrap items-center gap-2">
-              <span className="text-xs font-mono text-slate-400 flex items-center gap-1 mr-2">
+            <div className="mt-10 pt-6 border-t border-slate-800 flex flex-wrap items-center gap-2">
+              <span className="text-xs text-slate-500 flex items-center gap-1 mr-2">
                 <Tag className="w-3.5 h-3.5" /> Tags:
               </span>
               {activePost.tags.map((tag, tIdx) => (
                 <span
                   key={tIdx}
-                  className="px-2.5 py-1 rounded bg-slate-100 text-slate-600 border border-slate-200 text-xs font-mono"
+                  className="px-2.5 py-1 rounded bg-slate-900 text-slate-400 border border-slate-800 text-xs"
                 >
                   #{tag}
                 </span>
@@ -227,11 +227,11 @@ export const BlogPage: React.FC<BlogPageProps> = ({
           )}
 
           {/* Next Steps Mentorship Banner */}
-          <div className="mt-14 p-8 rounded-2xl bg-gradient-to-br from-blue-50 via-white to-slate-50 border border-blue-200 text-center space-y-4 shadow-sm">
-            <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
+          <div className="mt-14 p-8 rounded-2xl bg-slate-950/60 border border-slate-800 text-center space-y-4">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-white">
               Ready to Master These Strategies 1-on-1?
             </h3>
-            <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto">
+            <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto">
               Don't leave risk management to trial and error. Learn institutional order flow, delta hedging, and risk mechanics under direct personal mentorship.
             </p>
             <div className="pt-2">
@@ -252,30 +252,25 @@ export const BlogPage: React.FC<BlogPageProps> = ({
 
   // Main Blog Grid / List View
   return (
-    <div className="py-12 lg:py-20 bg-white min-h-screen">
+    <div className="py-12 lg:py-20 bg-black min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header Title */}
         <div className="max-w-3xl space-y-4 mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-600 text-xs font-mono uppercase tracking-wider">
-            <BookOpen className="w-3.5 h-3.5" />
-            <span>Institutional Research & Strategy Desk</span>
-          </div>
-
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Academy Insights & Strategy Blog
           </h1>
 
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+          <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
             Direct commentary on market mechanics, delta hedging, institutional order book analysis, and risk models written by veteran floor traders.
           </p>
         </div>
 
         {/* Admin Bar Notification if logged in */}
         {isAdminLoggedIn && (
-          <div className="mb-8 p-4 rounded-xl bg-blue-50 border border-blue-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div className="flex items-center gap-2 text-sm text-blue-700">
-              <Lock className="w-4 h-4 text-emerald-600" />
+          <div className="mb-8 p-4 rounded-xl bg-blue-950/20 border border-blue-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-2 text-sm text-blue-300">
+              <Lock className="w-4 h-4 text-emerald-400" />
               <span>You are logged in as <strong>Administrator</strong>. You can publish new blogs or edit existing articles.</span>
             </div>
             <button
@@ -289,7 +284,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
         )}
 
         {/* Filter Controls & Search */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 pb-6 border-b border-slate-200">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 pb-6 border-b border-slate-800">
           {/* Category Tabs */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-thin">
             {categories.map((cat) => (
@@ -299,7 +294,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition ${
                   selectedCategory === cat
                     ? 'bg-blue-600 text-white shadow-sm'
-                    : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-50 border border-slate-200'
+                    : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
                 }`}
               >
                 {cat}
@@ -309,23 +304,23 @@ export const BlogPage: React.FC<BlogPageProps> = ({
 
           {/* Search Input */}
           <div className="relative min-w-[260px] sm:w-72">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search articles, strategies..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 transition"
+              className="w-full pl-9 pr-4 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition"
             />
           </div>
         </div>
 
         {/* Blog Post List / Cards */}
         {filteredPosts.length === 0 ? (
-          <div className="text-center py-20 border border-dashed border-slate-300 rounded-2xl p-8 bg-slate-50">
-            <BookOpen className="w-12 h-12 text-slate-400 mx-auto mb-3" />
-            <h3 className="text-lg font-bold text-slate-900 mb-1">No articles found</h3>
-            <p className="text-sm text-slate-500 max-w-sm mx-auto mb-6">
+          <div className="text-center py-20 border border-dashed border-slate-800 rounded-2xl p-8 bg-slate-950/40">
+            <BookOpen className="w-12 h-12 text-slate-600 mx-auto mb-3" />
+            <h3 className="text-lg font-bold text-white mb-1">No articles found</h3>
+            <p className="text-sm text-slate-400 max-w-sm mx-auto mb-6">
               Try adjusting your category filter or search keywords.
             </p>
             {isAdminLoggedIn && (
@@ -351,12 +346,12 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                     setSelectedPostId(post.id);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className={`group relative rounded-2xl bg-white border border-slate-200 hover:border-blue-300 transition-all duration-300 flex flex-col overflow-hidden shadow-sm hover:shadow-lg cursor-pointer ${
+                  className={`group relative rounded-2xl bg-slate-950/60 border border-slate-800 hover:border-blue-500/40 transition-all duration-300 flex flex-col overflow-hidden cursor-pointer ${
                     isFirstFeatured ? 'md:col-span-2 lg:col-span-3 md:flex-row' : ''
                   }`}
                 >
                   {/* Card Image */}
-                  <div className={`overflow-hidden bg-slate-100 relative ${
+                  <div className={`overflow-hidden bg-slate-900 relative ${
                     isFirstFeatured ? 'md:w-1/2 h-64 md:h-auto min-h-[280px]' : 'h-52 w-full'
                   }`}>
                     {post.coverImage ? (
@@ -369,12 +364,12 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                         }}
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-400 font-mono text-xs">
+                      <div className="w-full h-full flex items-center justify-center bg-slate-900 text-slate-600 text-xs">
                         Hedge Trading Academy
                       </div>
                     )}
                     <div className="absolute top-3 left-3">
-                      <span className="px-2.5 py-1 rounded text-[11px] font-bold uppercase tracking-wider bg-white/90 text-blue-600 border border-blue-200 backdrop-blur-sm">
+                      <span className="px-2.5 py-1 rounded text-[11px] font-bold uppercase tracking-wider bg-black/70 text-blue-400 border border-blue-500/30 backdrop-blur-sm">
                         {post.category}
                       </span>
                     </div>
@@ -385,38 +380,38 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                     isFirstFeatured ? 'md:w-1/2 md:p-8' : ''
                   }`}>
                     <div className="space-y-3">
-                      <div className="flex items-center gap-3 text-xs text-slate-500 font-mono">
+                      <div className="flex items-center gap-3 text-xs text-slate-400">
                         <span className="flex items-center gap-1">
-                          <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                          <Calendar className="w-3.5 h-3.5 text-slate-500" />
                           {post.date}
                         </span>
                         <span>•</span>
                         <span className="flex items-center gap-1">
-                          <Clock className="w-3.5 h-3.5 text-slate-400" />
+                          <Clock className="w-3.5 h-3.5 text-slate-500" />
                           {post.readTime}
                         </span>
                       </div>
 
-                      <h2 className={`font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug ${
+                      <h2 className={`font-bold text-white group-hover:text-blue-400 transition-colors leading-snug ${
                         isFirstFeatured ? 'text-xl sm:text-2xl lg:text-3xl' : 'text-lg sm:text-xl'
                       }`}>
                         {post.title}
                       </h2>
 
-                      <p className="text-slate-500 text-sm line-clamp-3 leading-relaxed">
+                      <p className="text-slate-400 text-sm line-clamp-3 leading-relaxed">
                         {post.excerpt}
                       </p>
                     </div>
 
-                    <div className="pt-6 mt-4 border-t border-slate-100 flex items-center justify-between">
+                    <div className="pt-6 mt-4 border-t border-slate-800 flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <div className="w-6 h-6 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-[10px] font-bold border border-blue-200">
+                        <div className="w-6 h-6 rounded-full bg-blue-950/40 text-blue-400 flex items-center justify-center text-[10px] font-bold border border-blue-500/30">
                           {post.author.charAt(0)}
                         </div>
-                        <span className="text-xs text-slate-600 font-medium">{post.author}</span>
+                        <span className="text-xs text-slate-300 font-medium">{post.author}</span>
                       </div>
 
-                      <span className="text-xs font-bold text-blue-600 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                      <span className="text-xs font-bold text-blue-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                         <span>Read Article</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </span>
@@ -429,11 +424,11 @@ export const BlogPage: React.FC<BlogPageProps> = ({
         )}
 
         {/* Footer info & Admin login reminder */}
-        <div className="mt-20 pt-8 border-t border-slate-200 text-center text-xs text-slate-500">
+        <div className="mt-20 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
           <span>Are you the website administrator? </span>
           <button
             onClick={() => onNavigate('admin')}
-            className="text-blue-600 hover:underline font-semibold"
+            className="text-blue-400 hover:underline font-semibold"
           >
             Log into Admin Portal
           </button>

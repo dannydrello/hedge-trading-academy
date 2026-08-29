@@ -26,7 +26,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[#1A1F2C]/80 bg-[#08090C]/95 backdrop-blur-md transition-all duration-200">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-900 bg-black/95 backdrop-blur-md transition-all duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -89,7 +89,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
       {mobileOpen && (
         <div
           id="mobile-nav-menu"
-          className="lg:hidden border-b border-slate-800 bg-[#0c0e14] px-4 pt-3 pb-6 space-y-3 animate-in fade-in slide-in-from-top-4 duration-200"
+          className="lg:hidden border-b border-slate-800 bg-black px-4 pt-3 pb-6 space-y-3 animate-in fade-in slide-in-from-top-4 duration-200"
         >
           <div className="space-y-1">
             {navLinks.map((link) => {

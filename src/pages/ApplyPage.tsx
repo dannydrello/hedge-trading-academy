@@ -3,18 +3,15 @@ import { PageId, TargetAudienceCard, ApplicationFormData } from '../types';
 import {
   ShieldCheck,
   CheckCircle2,
-  Lock,
   Clock,
-  Sparkles,
   Send,
-  AlertCircle,
   Compass,
   Scale,
   Brain,
-  Layers,
   Check,
   ArrowRight,
   MessageCircle,
+  Users,
 } from 'lucide-react';
 
 const WHATSAPP_NUMBER = '447931379380';
@@ -45,45 +42,26 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
   const targetAudiences: TargetAudienceCard[] = [
     {
       title: 'New Traders',
-      badge: 'Foundation',
       description:
         "If you're just starting your trading journey and want to learn the right way from day one, building a foundation in market logic and risk management and avoiding years of costly mistakes.",
     },
     {
       title: 'Developing Traders',
-      badge: 'Consistency & Scale',
       description:
         'If you\'ve been trading for a while but struggle with consistency, risk management, or turning your edge into profitable returns, we will help you develop a more structured approach to analysing and managing positions.',
     },
     {
       title: 'Investors',
-      badge: 'Capital Preservation',
       description:
         'If you\'re an investor looking to learn the principles of managing portfolios and market exposure.',
     },
   ];
 
   const whatsIncludedItems = [
-    {
-      title: 'Marking your entry levels',
-      description: 'Master key institutional market structure, order book liquidity, and institutional entry filters.',
-      icon: Compass,
-    },
-    {
-      title: 'Risk management (stop losses and take profit)',
-      description: 'Calculated mathematical position sizing, non-linear targets, and mechanical exit execution.',
-      icon: Scale,
-    },
-    {
-      title: 'Hedging',
-      description: 'Proxy hedging with options and futures contracts to freeze downside risk during flash volatility.',
-      icon: ShieldCheck,
-    },
-    {
-      title: 'Trading psychology',
-      description: 'Eliminate emotional impulsive trades through institutional routine, pit-discipline, and structured logging.',
-      icon: Brain,
-    },
+    { title: 'Marking your entry levels', icon: Compass },
+    { title: 'Risk management (stop losses and take profit)', icon: Scale },
+    { title: 'Hedging', icon: ShieldCheck },
+    { title: 'Trading psychology', icon: Brain },
   ];
 
   const validateForm = (): boolean => {
@@ -170,38 +148,12 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
 
   return (
     <div className="space-y-24 sm:space-y-32">
-      {/* 1. TOP HEADER & PHOTO SECTION */}
-      <section className="relative pt-10 sm:pt-16 pb-6" id="apply-header-section">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-widest text-blue-600 bg-blue-50 border border-blue-200">
-              <Lock className="w-3.5 h-3.5 text-blue-600" />
-              <span>Strictly Limited to 5 Traders Per Month</span>
-            </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-              Apply For One-To-One Mentorship
-            </h1>
-            <p className="text-base sm:text-lg text-slate-600">
-              Private institutional mentoring designed for serious traders seeking capital defense and volatility mastery.
-            </p>
-          </div>
-
-          {/* Mentorship Photo */}
-          <div className="max-w-4xl mx-auto">
-            <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl">
-              <img
-                src="/mentor.png"
-                alt="Live 1-on-1 mentorship trading desk session"
-                className="w-full h-80 sm:h-[28rem] object-cover object-bottom"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
-                <p className="text-xs sm:text-sm font-mono text-slate-100 tracking-tight">
-                  Live 1-on-1 Trading Desk & Floor Order Book Analysis Suite
-                </p>
-              </div>
-            </div>
-          </div>
+      {/* 1. TOP HEADER */}
+      <section className="relative pt-16 sm:pt-24 pb-6" id="apply-header-section">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Apply For One-To-One Mentorship
+          </h1>
         </div>
       </section>
 
@@ -209,37 +161,23 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
       <section className="relative py-6" id="who-this-is-for-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-            <span className="text-xs font-mono uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-              Candidate Profile
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Who This Is For
             </h2>
-            <p className="text-slate-600 text-base">
-              Our mentorship is tailored to traders and investors committed to institutional principles.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {targetAudiences.map((audience) => (
               <div
                 key={audience.title}
-                className="rounded-2xl border border-slate-200 bg-white p-8 space-y-4 hover:border-blue-300 hover:shadow-md transition shadow-sm flex flex-col justify-between"
+                className="rounded-2xl border border-slate-800 bg-slate-950/60 p-8 space-y-3 hover:border-blue-500/40 transition"
               >
-                <div className="space-y-3">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-600 border border-blue-200">
-                    {audience.badge}
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-                    {audience.title}
-                  </h3>
-                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    {audience.description}
-                  </p>
-                </div>
-                <div className="pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-mono text-blue-600">
-                  <CheckCircle2 className="w-4 h-4" /> Structured One-to-One Curriculum
-                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  {audience.title}
+                </h3>
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                  {audience.description}
+                </p>
               </div>
             ))}
           </div>
@@ -250,15 +188,9 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
       <section className="relative py-6" id="whats-included-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-            <span className="text-xs font-mono uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-              Curriculum Elements
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               What&apos;s Included
             </h2>
-            <p className="text-slate-600 text-base">
-              Personal one-to-one mentorship sessions covering every vital pillar of professional trading:
-            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -267,17 +199,14 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
               return (
                 <div
                   key={idx}
-                  className="rounded-xl border border-slate-200 bg-white p-6 space-y-4 shadow-sm hover:border-blue-300 hover:shadow-md transition"
+                  className="rounded-xl border border-slate-800 bg-slate-950/60 p-6 flex flex-col items-center text-center gap-4 hover:border-blue-500/40 transition"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600">
+                  <div className="w-10 h-10 rounded-lg bg-blue-950/40 border border-blue-500/30 flex items-center justify-center text-blue-400">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 tracking-tight">
+                  <h3 className="text-base font-bold text-white tracking-tight">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                    {item.description}
-                  </p>
                 </div>
               );
             })}
@@ -285,85 +214,22 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* 4. PRICING & SCARCITY SECTION */}
-      <section className="relative py-6" id="pricing-section">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border border-blue-200 bg-gradient-to-b from-blue-50 via-white to-white p-8 sm:p-12 shadow-xl space-y-8">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-8 border-b border-slate-200">
-              <div className="space-y-1">
-                <span className="text-xs uppercase font-mono tracking-widest text-blue-600 font-bold">
-                  Programme Investment
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  One-Time Investment — <span className="text-blue-600 font-mono">£2,995</span>
-                </h3>
-              </div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-100 border border-blue-200 text-blue-700 text-xs font-mono font-bold shrink-0">
-                <Lock className="w-4 h-4 text-blue-600" /> Capped at 5 Traders / Mo
-              </div>
-            </div>
-
-            <div className="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed">
-              <p>
-                Payable upon acceptance into the program. This is an investment in your trading future and includes personalised mentorship over a structured period.
-              </p>
-
-              {/* WhatsApp Payment CTA */}
-              <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hi, I would like to complete payment and secure my spot on the Hedge Trading Academy mentorship programme.')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                id="pricing-whatsapp-pay-btn"
-                className="flex items-center justify-between gap-4 p-5 rounded-xl bg-emerald-50 border border-emerald-200 hover:border-emerald-400 hover:bg-emerald-100 transition group"
-              >
-                <div className="flex items-center gap-3.5">
-                  <div className="w-11 h-11 rounded-lg bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0">
-                    <MessageCircle className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-slate-900">Ready to pay & secure your spot?</div>
-                    <div className="text-xs text-slate-500">Message us on WhatsApp: <span className="text-emerald-700 font-mono font-semibold">{WHATSAPP_DISPLAY}</span></div>
-                  </div>
-                </div>
-                <ArrowRight className="w-4 h-4 text-emerald-600 shrink-0 group-hover:translate-x-1 transition-transform" />
-              </a>
-
-              {/* Scarcity Note */}
-              <div className="rounded-xl bg-amber-50 border border-amber-200 p-5 space-y-2">
-                <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-amber-700">
-                  <AlertCircle className="w-4 h-4" />
-                  <span>Important Cohort Scarcity Policy</span>
-                </div>
-                <p className="text-xs sm:text-sm text-amber-800/80 leading-relaxed">
-                  As our mentorship program involves intensive one-to-one training, spaces on our mentorship program are strictly limited to 5 traders per month. Successful entry into our mentorship program is by application only.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. APPLICATION FORM */}
+      {/* 4. APPLICATION FORM */}
       <section className="relative py-8" id="application-form-section">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 md:p-12 shadow-xl relative overflow-hidden">
-            {/* Ambient Background Glow */}
-            <div className="absolute top-0 right-0 w-80 h-80 bg-blue-50 rounded-full blur-3xl pointer-events-none" />
-
+          <div className="rounded-3xl border border-slate-800 bg-slate-950/60 p-6 sm:p-10 md:p-12 relative overflow-hidden">
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                 {/* Heading & Subtext */}
-                <div className="space-y-2 pb-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono uppercase tracking-widest text-blue-600 font-bold">
-                      Direct Admissions
-                    </span>
-                    <span className="text-xs text-slate-500 font-mono">1-on-1 Confidential</span>
+                <div className="space-y-3 pb-2">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-950/30 text-blue-400 border border-blue-500/30">
+                    <Users className="w-3.5 h-3.5" />
+                    <span>We accept a maximum of 5 applicants per month</span>
                   </div>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                     Application Form
                   </h2>
-                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
                     Tell us about your trading background and goals. We&apos;ll review your application and contact you within 3 business days.
                   </p>
                 </div>
@@ -373,9 +239,9 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                   <div className="space-y-2">
                     <label
                       htmlFor="fullName"
-                      className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                      className="block text-xs font-bold uppercase tracking-wider text-slate-300"
                     >
-                      Full Name <span className="text-blue-600">*</span>
+                      Full Name <span className="text-blue-400">*</span>
                     </label>
                     <input
                       type="text"
@@ -384,12 +250,12 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                       value={formData.fullName}
                       onChange={handleInputChange}
                       placeholder="e.g. Alexander Vance"
-                      className={`w-full px-4 py-3 rounded-xl bg-white border text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition ${
-                        errors.fullName ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'
+                      className={`w-full px-4 py-3 rounded-xl bg-slate-900 border text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition ${
+                        errors.fullName ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-700'
                       }`}
                     />
                     {errors.fullName && (
-                      <p className="text-xs text-red-600 mt-1">{errors.fullName}</p>
+                      <p className="text-xs text-red-400 mt-1">{errors.fullName}</p>
                     )}
                   </div>
 
@@ -397,9 +263,9 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                   <div className="space-y-2">
                     <label
                       htmlFor="email"
-                      className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                      className="block text-xs font-bold uppercase tracking-wider text-slate-300"
                     >
-                      Email Address <span className="text-blue-600">*</span>
+                      Email Address <span className="text-blue-400">*</span>
                     </label>
                     <input
                       type="email"
@@ -408,12 +274,12 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="alex@institutional.com"
-                      className={`w-full px-4 py-3 rounded-xl bg-white border text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition ${
-                        errors.email ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'
+                      className={`w-full px-4 py-3 rounded-xl bg-slate-900 border text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition ${
+                        errors.email ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-700'
                       }`}
                     />
                     {errors.email && (
-                      <p className="text-xs text-red-600 mt-1">{errors.email}</p>
+                      <p className="text-xs text-red-400 mt-1">{errors.email}</p>
                     )}
                   </div>
                 </div>
@@ -423,9 +289,9 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                   <div className="space-y-2">
                     <label
                       htmlFor="phone"
-                      className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                      className="block text-xs font-bold uppercase tracking-wider text-slate-300"
                     >
-                      Phone Number <span className="text-blue-600">*</span>
+                      Phone Number <span className="text-blue-400">*</span>
                     </label>
                     <input
                       type="tel"
@@ -434,12 +300,12 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="+44 7911 123456"
-                      className={`w-full px-4 py-3 rounded-xl bg-white border text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition ${
-                        errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'
+                      className={`w-full px-4 py-3 rounded-xl bg-slate-900 border text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition ${
+                        errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-700'
                       }`}
                     />
                     {errors.phone && (
-                      <p className="text-xs text-red-600 mt-1">{errors.phone}</p>
+                      <p className="text-xs text-red-400 mt-1">{errors.phone}</p>
                     )}
                   </div>
 
@@ -447,9 +313,9 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                   <div className="space-y-2">
                     <label
                       htmlFor="country"
-                      className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                      className="block text-xs font-bold uppercase tracking-wider text-slate-300"
                     >
-                      Country <span className="text-blue-600">*</span>
+                      Country <span className="text-blue-400">*</span>
                     </label>
                     <input
                       type="text"
@@ -458,12 +324,12 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                       value={formData.country}
                       onChange={handleInputChange}
                       placeholder="United Kingdom / United States"
-                      className={`w-full px-4 py-3 rounded-xl bg-white border text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition ${
-                        errors.country ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300'
+                      className={`w-full px-4 py-3 rounded-xl bg-slate-900 border text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition ${
+                        errors.country ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-700'
                       }`}
                     />
                     {errors.country && (
-                      <p className="text-xs text-red-600 mt-1">{errors.country}</p>
+                      <p className="text-xs text-red-400 mt-1">{errors.country}</p>
                     )}
                   </div>
                 </div>
@@ -472,36 +338,36 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                 <div className="space-y-2">
                   <label
                     htmlFor="tradingExperience"
-                    className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                    className="block text-xs font-bold uppercase tracking-wider text-slate-300"
                   >
-                    Select Your Trading Experience <span className="text-blue-600">*</span>
+                    Select Your Trading Experience <span className="text-blue-400">*</span>
                   </label>
                   <select
                     id="tradingExperience"
                     name="tradingExperience"
                     value={formData.tradingExperience}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 rounded-xl bg-white border text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition cursor-pointer ${
+                    className={`w-full px-4 py-3 rounded-xl bg-slate-900 border text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition cursor-pointer ${
                       errors.tradingExperience
                         ? 'border-red-500 ring-1 ring-red-500'
-                        : 'border-slate-300'
+                        : 'border-slate-700'
                     }`}
                   >
-                    <option value="" disabled className="text-slate-400">
+                    <option value="" disabled className="bg-slate-900 text-slate-400">
                       Select Your Trading Experience
                     </option>
-                    <option value="Beginner">
+                    <option value="Beginner" className="bg-slate-900 text-white">
                       Beginner
                     </option>
-                    <option value="Intermediate">
+                    <option value="Intermediate" className="bg-slate-900 text-white">
                       Intermediate
                     </option>
-                    <option value="Advanced">
+                    <option value="Advanced" className="bg-slate-900 text-white">
                       Advanced
                     </option>
                   </select>
                   {errors.tradingExperience && (
-                    <p className="text-xs text-red-600 mt-1">{errors.tradingExperience}</p>
+                    <p className="text-xs text-red-400 mt-1">{errors.tradingExperience}</p>
                   )}
                 </div>
 
@@ -509,9 +375,9 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                 <div className="space-y-2">
                   <label
                     htmlFor="currentChallenges"
-                    className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                    className="block text-xs font-bold uppercase tracking-wider text-slate-300"
                   >
-                    What are your current trading challenges? <span className="text-blue-600">*</span>
+                    What are your current trading challenges? <span className="text-blue-400">*</span>
                   </label>
                   <textarea
                     id="currentChallenges"
@@ -520,14 +386,14 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                     value={formData.currentChallenges}
                     onChange={handleInputChange}
                     placeholder="e.g. Struggling with risk discipline, holding losing trades too long, or suffering drawdown during market volatility..."
-                    className={`w-full px-4 py-3 rounded-xl bg-white border text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none ${
+                    className={`w-full px-4 py-3 rounded-xl bg-slate-900 border text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none ${
                       errors.currentChallenges
                         ? 'border-red-500 ring-1 ring-red-500'
-                        : 'border-slate-300'
+                        : 'border-slate-700'
                     }`}
                   />
                   {errors.currentChallenges && (
-                    <p className="text-xs text-red-600 mt-1">{errors.currentChallenges}</p>
+                    <p className="text-xs text-red-400 mt-1">{errors.currentChallenges}</p>
                   )}
                 </div>
 
@@ -535,9 +401,9 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                 <div className="space-y-2">
                   <label
                     htmlFor="whyMentorship"
-                    className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                    className="block text-xs font-bold uppercase tracking-wider text-slate-300"
                   >
-                    Why do you want mentorship? <span className="text-blue-600">*</span>
+                    Why do you want mentorship? <span className="text-blue-400">*</span>
                   </label>
                   <textarea
                     id="whyMentorship"
@@ -546,14 +412,14 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                     value={formData.whyMentorship}
                     onChange={handleInputChange}
                     placeholder="e.g. Want direct institutional pit-logic guidance, professional hedging mechanics, and 1-on-1 accountability..."
-                    className={`w-full px-4 py-3 rounded-xl bg-white border text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none ${
+                    className={`w-full px-4 py-3 rounded-xl bg-slate-900 border text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none ${
                       errors.whyMentorship
                         ? 'border-red-500 ring-1 ring-red-500'
-                        : 'border-slate-300'
+                        : 'border-slate-700'
                     }`}
                   />
                   {errors.whyMentorship && (
-                    <p className="text-xs text-red-600 mt-1">{errors.whyMentorship}</p>
+                    <p className="text-xs text-red-400 mt-1">{errors.whyMentorship}</p>
                   )}
                 </div>
 
@@ -561,7 +427,7 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                 <div className="space-y-2">
                   <label
                     htmlFor="currentAccountSize"
-                    className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                    className="block text-xs font-bold uppercase tracking-wider text-slate-300"
                   >
                     Current Account Size (optional)
                   </label>
@@ -572,7 +438,7 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                     value={formData.currentAccountSize}
                     onChange={handleInputChange}
                     placeholder="e.g. £10,000 - £50,000 / Funded Account / Private Capital"
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                   />
                 </div>
 
@@ -580,7 +446,7 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                 <div className="space-y-2">
                   <label
                     htmlFor="tradingGoals"
-                    className="block text-xs font-bold uppercase tracking-wider text-slate-600"
+                    className="block text-xs font-bold uppercase tracking-wider text-slate-300"
                   >
                     Trading Goals (optional)
                   </label>
@@ -591,7 +457,7 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                     value={formData.tradingGoals}
                     onChange={handleInputChange}
                     placeholder="e.g. Achieve consistent monthly capital compounding and transition to managing institutional or proprietary capital."
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"
                   />
                 </div>
 
@@ -617,8 +483,8 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                   </button>
                 </div>
 
-                <div className="flex items-center justify-center gap-2 text-xs text-slate-500 pt-2 font-mono">
-                  <ShieldCheck className="w-4 h-4 text-blue-600" />
+                <div className="flex items-center justify-center gap-2 text-xs text-slate-400 pt-2">
+                  <ShieldCheck className="w-4 h-4 text-blue-400" />
                   <span>Encrypted & Strictly Confidential Submission</span>
                 </div>
               </form>
@@ -628,33 +494,33 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                 id="application-success-view"
                 className="text-center py-10 space-y-6 animate-in fade-in zoom-in-95 duration-200"
               >
-                <div className="w-20 h-20 rounded-full bg-blue-50 border-2 border-blue-500 flex items-center justify-center mx-auto text-blue-600 shadow-[0_0_30px_rgba(37,99,235,0.15)]">
+                <div className="w-20 h-20 rounded-full bg-blue-950/40 border-2 border-blue-500 flex items-center justify-center mx-auto text-blue-400">
                   <Check className="w-10 h-10" />
                 </div>
 
                 <div className="space-y-2">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-blue-50 text-blue-700 border border-blue-200">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-950/40 text-blue-400 border border-blue-500/30">
                     Application Reference: {applicationRef}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
                     Application Received
                   </h3>
-                  <p className="text-slate-600 text-sm sm:text-base max-w-md mx-auto">
-                    Thank you, <strong className="text-slate-900">{formData.fullName}</strong>. Your application for Hedge Trading Academy one-to-one mentorship has been logged.
+                  <p className="text-slate-300 text-sm sm:text-base max-w-md mx-auto">
+                    Thank you, <strong className="text-white">{formData.fullName}</strong>. Your application for Hedge Trading Academy one-to-one mentorship has been logged.
                   </p>
                 </div>
 
-                <div className="rounded-2xl bg-slate-50 border border-slate-200 p-6 max-w-md mx-auto text-left space-y-3 text-xs sm:text-sm text-slate-700">
-                  <div className="font-bold text-slate-900 uppercase tracking-wider text-xs font-mono border-b border-slate-200 pb-2 flex items-center justify-between">
+                <div className="rounded-2xl bg-slate-900 border border-slate-700 p-6 max-w-md mx-auto text-left space-y-3 text-xs sm:text-sm text-slate-300">
+                  <div className="font-bold text-white uppercase tracking-wider text-xs border-b border-slate-800 pb-2 flex items-center justify-between">
                     <span>Admissions Review Protocol</span>
-                    <span className="text-blue-600">Step 1 of 2</span>
+                    <span className="text-blue-400">Step 1 of 2</span>
                   </div>
                   <div className="flex items-start gap-2.5">
-                    <Clock className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+                    <Clock className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                     <span>Our Lead Mentor will personally review your trading experience and challenges within <strong>3 business days</strong>.</span>
                   </div>
                   <div className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                     <span>If selected for the monthly 5-trader cohort, you will receive onboarding scheduling details at <strong>{formData.email}</strong>.</span>
                   </div>
                 </div>
@@ -671,7 +537,7 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                   <span>Message Us on WhatsApp to Arrange Payment</span>
                 </a>
                 <p className="text-xs text-slate-500 -mt-2">
-                  WhatsApp: <span className="text-emerald-600 font-mono">{WHATSAPP_DISPLAY}</span>
+                  WhatsApp: <span className="text-emerald-400">{WHATSAPP_DISPLAY}</span>
                 </p>
 
                 <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -683,7 +549,7 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                   </button>
                   <button
                     onClick={resetForm}
-                    className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 font-semibold text-sm transition"
+                    className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 font-semibold text-sm transition"
                   >
                     Submit Another Application
                   </button>

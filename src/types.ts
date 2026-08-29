@@ -43,13 +43,6 @@ export interface ContactFormData {
   message: string;
 }
 
-export interface Testimonial {
-  id: string;
-  name: string;
-  role?: string;
-  quote: string;
-}
-
 export interface FaqItem {
   id: string;
   question: string;
@@ -65,13 +58,11 @@ export interface ComparisonRow {
 export interface PhilosophyCard {
   title: string;
   description: string;
-  tag: string;
 }
 
 export interface TargetAudienceCard {
   title: string;
   description: string;
-  badge: string;
 }
 
 export interface ApplicationFormData {

@@ -15,7 +15,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   };
 
   return (
-    <footer className="border-t border-[#181C28] bg-[#060709] text-slate-400 text-sm mt-24">
+    <footer className="border-t border-slate-900 bg-black text-slate-400 text-sm mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 pb-12 border-b border-[#1A1F2E]">
           {/* Brand Col */}
@@ -33,16 +33,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </span>
             </div>
             <div className="pt-2">
-              <h4 className="text-white text-xs font-bold uppercase tracking-widest font-mono mb-3">
+              <h4 className="text-white text-xs font-bold uppercase tracking-widest mb-3">
                 Follow The Academy
               </h4>
-              <SocialLinks variant="dark" />
+              <SocialLinks />
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="md:col-span-3 space-y-4">
-            <h4 className="text-white text-xs font-bold uppercase tracking-widest font-mono">
+            <h4 className="text-white text-xs font-bold uppercase tracking-widest">
               Academy Navigation
             </h4>
             <ul className="space-y-2.5">
@@ -99,7 +99,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
           {/* Contact & Format Details */}
           <div className="md:col-span-4 space-y-4">
-            <h4 className="text-white text-xs font-bold uppercase tracking-widest font-mono">
+            <h4 className="text-white text-xs font-bold uppercase tracking-widest">
               Mentorship Details
             </h4>
             <ul className="space-y-3 text-xs sm:text-sm">
@@ -141,7 +141,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Admin
             </button>
           </div>
-          <div className="flex items-center gap-6 font-mono text-[11px]">
+          <div className="flex items-center gap-6 text-[11px]">
             <span>One-to-One Trading Mentorship</span>
             <span>•</span>
             <span>Capital Defence Framework</span>

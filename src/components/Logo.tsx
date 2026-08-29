@@ -12,9 +12,9 @@ export const Logo: React.FC<LogoProps> = ({
   showText = true,
 }) => {
   const imageSizes = {
-    sm: 'h-9',
-    md: 'h-12',
-    lg: 'h-16',
+    sm: 'h-11',
+    md: 'h-16',
+    lg: 'h-28',
   };
 
   return (
