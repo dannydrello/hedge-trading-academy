@@ -144,8 +144,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               className="relative overflow-hidden rounded-xl border border-slate-800 bg-cover bg-center p-6 sm:p-8"
               style={{ backgroundImage: "url('/homepage.png')" }}
             >
-              <div className="absolute inset-0 bg-black/75" />
-              <p className="relative z-10">
+              <div className="absolute inset-0 bg-black/45" />
+              <p className="relative z-10 text-white [text-shadow:0_1px_4px_rgba(0,0,0,0.8)]">
                 Welcome to Hedge Trading Academy one-to-one mentorship. Whether you are a beginner looking to understand the fundamentals of hedging, an experienced trader considering new strategies, or an investor looking to protect your capital, our structured one-to-one mentorship programme is designed to help you trade with confidence.
               </p>
             </div>
