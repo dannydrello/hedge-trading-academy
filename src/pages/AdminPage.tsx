@@ -139,7 +139,11 @@ export const AdminPage: React.FC<AdminPageProps> = ({
     setPublished(post.published ?? true);
     setIsEditing(true);
     setActiveTab('editor');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
   };
 
   // Delete Post

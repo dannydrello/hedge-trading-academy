@@ -11,7 +11,6 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const scrollToTop = (page: PageId) => {
     onNavigate(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (

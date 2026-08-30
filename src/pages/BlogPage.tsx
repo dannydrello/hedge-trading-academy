@@ -70,7 +70,11 @@ export const BlogPage: React.FC<BlogPageProps> = ({
               id="blog-back-btn"
               onClick={() => {
                 setSelectedPostId(null);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                requestAnimationFrame(() => {
+                  requestAnimationFrame(() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  });
+                });
               }}
               className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 hover:text-blue-400 transition group"
             >
@@ -340,7 +344,11 @@ export const BlogPage: React.FC<BlogPageProps> = ({
                   id={`blog-card-${post.id}`}
                   onClick={() => {
                     setSelectedPostId(post.id);
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    requestAnimationFrame(() => {
+                      requestAnimationFrame(() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      });
+                    });
                   }}
                   className={`group relative rounded-2xl bg-slate-950/60 border border-slate-800 hover:border-blue-500/40 transition-all duration-300 flex flex-col overflow-hidden cursor-pointer ${
                     isFirstFeatured ? 'md:col-span-2 lg:col-span-3 md:flex-row' : ''

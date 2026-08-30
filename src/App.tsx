@@ -13,6 +13,7 @@ import { getStoredBlogPosts, saveBlogPosts } from './data/blogData';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageId>('home');
+  const [pendingScroll, setPendingScroll] = useState<string | null>(null);
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState<boolean>(() => {
     return localStorage.getItem('hta_admin_auth') === 'true';
@@ -65,18 +66,28 @@ export default function App() {
   const navigateTo = (page: PageId, scrollTargetId?: string) => {
     setCurrentPage(page);
     window.location.hash = page;
-
-    if (scrollTargetId) {
-      // Wait a couple of frames so the destination page has mounted before scrolling to it.
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          document.getElementById(scrollTargetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-      });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    // Defer the actual scroll to an effect that runs after the new page has
+    // rendered — doing it here races the page swap and can leave the scroll
+    // position stuck wherever the old (now-removed) page happened to be.
+    setPendingScroll(scrollTargetId ?? '__top__');
   };
+
+  // Runs after the destination page has committed to the DOM.
+  useEffect(() => {
+    if (pendingScroll === null) return;
+    const targetId = pendingScroll;
+    setPendingScroll(null);
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        if (targetId === '__top__') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  }, [currentPage, pendingScroll]);
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col font-sans selection:bg-blue-600 selection:text-white">
