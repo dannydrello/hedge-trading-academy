@@ -57,10 +57,10 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
   ];
 
   const whatsIncludedItems = [
-    { title: 'Week One' },
-    { title: 'Week Two' },
-    { title: 'Week Three' },
-    { title: 'Week Four' },
+    { week: 'Week One', title: 'Reading Live Order Flow and Marking Your Levels' },
+    { week: 'Week Two', title: 'Risk Management' },
+    { week: 'Week Three', title: 'Hedging' },
+    { week: 'Week Four', title: 'Trading Psychology' },
   ];
 
   const validateForm = (): boolean => {
@@ -226,11 +226,14 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
               return (
                 <div
                   key={idx}
-                  className="rounded-xl border border-slate-800 bg-slate-950/60 p-6 flex flex-col items-center text-center gap-4 hover:border-blue-500/40 transition"
+                  className="rounded-xl border border-slate-800 bg-slate-950/60 p-6 flex flex-col items-center text-center gap-3 hover:border-blue-500/40 transition"
                 >
                   <div className="w-10 h-10 rounded-lg bg-blue-950/40 border border-blue-500/30 flex items-center justify-center text-blue-400">
                     <Calendar className="w-5 h-5" />
                   </div>
+                  <span className="text-xs font-bold uppercase tracking-widest text-blue-400">
+                    {item.week}
+                  </span>
                   <h3 className="text-base font-bold text-white tracking-tight">
                     {item.title}
                   </h3>
