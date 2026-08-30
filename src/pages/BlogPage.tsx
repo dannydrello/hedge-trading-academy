@@ -258,12 +258,8 @@ export const BlogPage: React.FC<BlogPageProps> = ({
         {/* Header Title */}
         <div className="max-w-3xl space-y-4 mb-10">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-            Academy Insights & Strategy Blog
+            Hedge Trading Academy Blogs
           </h1>
-
-          <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
-            Direct commentary on market mechanics, delta hedging, institutional order book analysis, and risk models written by veteran floor traders.
-          </p>
         </div>
 
         {/* Admin Bar Notification if logged in */}

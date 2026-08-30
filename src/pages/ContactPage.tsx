@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { NavigateFn } from '../types';
 import { SocialLinks } from '../components/SocialLinks';
 import {
-  Mail, Phone, Send, CheckCircle2, Shield
+  Mail, MessageCircle, Send, CheckCircle2, Shield
 } from 'lucide-react';
 
 const CONTACT_EMAIL = 'hello@hedgetradingacademy.com';
-const CONTACT_PHONE_DISPLAY = '+44 7921 249547';
+const WHATSAPP_NUMBER = '447921249547';
+const WHATSAPP_DISPLAY = '+44 7921 249547';
 
 interface ContactPageProps {
   onNavigate: NavigateFn;
@@ -17,7 +18,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
     fullName: '',
     email: '',
     phone: '',
-    inquiryType: 'Mentorship Admissions',
+    inquiryType: 'One to One Mentorship Enquiry',
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
@@ -67,15 +68,20 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 hover:opacity-80 transition"
+              >
                 <div className="p-2.5 rounded-lg bg-blue-950/40 text-blue-400 border border-blue-500/30">
-                  <Phone className="w-5 h-5" />
+                  <MessageCircle className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs uppercase text-slate-400">Phone</div>
-                  <div className="text-sm font-semibold text-white mt-0.5">{CONTACT_PHONE_DISPLAY}</div>
+                  <div className="text-xs uppercase text-slate-400">WhatsApp</div>
+                  <div className="text-sm font-semibold text-white mt-0.5">{WHATSAPP_DISPLAY}</div>
                 </div>
-              </div>
+              </a>
 
               <div>
                 <h3 className="text-base font-bold text-white mb-3">Follow The Academy</h3>
@@ -147,7 +153,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="space-y-1.5">
                       <label className="block text-xs uppercase tracking-wider text-slate-300">
-                        Phone / WhatsApp (Optional)
+                        WhatsApp (Optional)
                       </label>
                       <input
                         type="tel"
@@ -167,11 +173,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                         onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
                         className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-blue-500 transition"
                       >
-                        <option value="Mentorship Admissions">1-on-1 Mentorship Admissions</option>
-                        <option value="Curriculum & Strategy Questions">Curriculum & Hedging Strategy</option>
-                        <option value="Corporate/Desk Training">Prop Desk / Corporate Training</option>
-                        <option value="Media/Press">Media / Speaking Engagement</option>
-                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="One to One Mentorship Enquiry">One to One Mentorship Enquiry</option>
+                        <option value="General Enquiry">General Enquiry</option>
                       </select>
                     </div>
                   </div>
@@ -200,7 +203,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
 
                   <div className="flex items-center justify-center gap-2 text-xs text-slate-500 text-center">
                     <Shield className="w-3.5 h-3.5 text-blue-400" />
-                    <span>All communications are strictly confidential under NDA standards.</span>
+                    <span>Encrypted and strictly confidential submission</span>
                   </div>
                 </form>
               )}

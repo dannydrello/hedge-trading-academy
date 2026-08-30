@@ -5,9 +5,7 @@ import {
   CheckCircle2,
   Clock,
   Send,
-  Compass,
-  Scale,
-  Brain,
+  Calendar,
   Check,
   ArrowRight,
   MessageCircle,
@@ -59,10 +57,10 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
   ];
 
   const whatsIncludedItems = [
-    { title: 'Marking your entry levels', icon: Compass },
-    { title: 'Risk management (stop losses and take profit)', icon: Scale },
-    { title: 'Hedging', icon: ShieldCheck },
-    { title: 'Trading psychology', icon: Brain },
+    { title: 'Week One' },
+    { title: 'Week Two' },
+    { title: 'Week Three' },
+    { title: 'Week Four' },
   ];
 
   const validateForm = (): boolean => {
@@ -225,14 +223,13 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {whatsIncludedItems.map((item, idx) => {
-              const Icon = item.icon;
               return (
                 <div
                   key={idx}
                   className="rounded-xl border border-slate-800 bg-slate-950/60 p-6 flex flex-col items-center text-center gap-4 hover:border-blue-500/40 transition"
                 >
                   <div className="w-10 h-10 rounded-lg bg-blue-950/40 border border-blue-500/30 flex items-center justify-center text-blue-400">
-                    <Icon className="w-5 h-5" />
+                    <Calendar className="w-5 h-5" />
                   </div>
                   <h3 className="text-base font-bold text-white tracking-tight">
                     {item.title}

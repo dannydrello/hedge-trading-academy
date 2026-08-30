@@ -8,6 +8,8 @@ interface EventPageProps {
   onNavigate: NavigateFn;
 }
 
+const NOTIFICATIONS_EMAIL = 'hello@hedgetradingacademy.com';
+
 const EVENT = {
   title: 'Introduction to Hedging for Beginners',
   status: 'Coming Soon',
@@ -36,6 +38,14 @@ export const EventPage: React.FC<EventPageProps> = ({ onNavigate }) => {
     } catch (err) {
       console.error('Local save error', err);
     }
+
+    const subject = `Event Interest: ${EVENT.title}`;
+    const body = [
+      `Event: ${EVENT.title}`,
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+    ].join('\n');
+    window.location.href = `mailto:${NOTIFICATIONS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     setIsRegistered(true);
   };
@@ -110,7 +120,7 @@ export const EventPage: React.FC<EventPageProps> = ({ onNavigate }) => {
               </div>
               <h3 className="text-xl font-bold text-white">You're on the list!</h3>
               <p className="text-sm text-slate-400 max-w-sm mx-auto">
-                Thanks, <strong className="text-white">{formData.name}</strong>. We'll email <strong className="text-white">{formData.email}</strong> as soon as tickets become available.
+                Thanks, <strong className="text-white">{formData.name}</strong>. Your email app should have opened with your interest ready to send to <strong className="text-white">{NOTIFICATIONS_EMAIL}</strong> — just hit send there to confirm.
               </p>
             </div>
           ) : (

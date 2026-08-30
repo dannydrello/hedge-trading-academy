@@ -26,7 +26,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </p>
             <div className="flex items-center gap-2 pt-2">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                1-on-1 Mentorship Model
+                One to One Mentorship
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700">
                 London (GMT / BST)
@@ -113,7 +113,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
-                <span>Institutional Trading Mentorship • London, United Kingdom</span>
+                <span>Hedge Trading Academy • London, United Kingdom</span>
               </li>
             </ul>
           </div>

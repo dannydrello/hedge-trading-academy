@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import { NavigateFn, ComparisonRow, FaqItem } from '../types';
-import { Logo } from '../components/Logo';
 import {
-  ShieldCheck,
   CheckCircle2,
   XCircle,
   ChevronDown,
   ArrowRight,
   Sparkles,
-  Compass,
-  Scale,
-  Brain,
+  Calendar,
 } from 'lucide-react';
 
 interface HomePageProps {
@@ -89,10 +85,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   ];
 
   const programmePillars = [
-    { title: 'Institutional Order Flow / Marking Your Levels', icon: Compass },
-    { title: 'Risk Management', icon: Scale },
-    { title: 'Hedging', icon: ShieldCheck },
-    { title: 'Trading Psychology', icon: Brain },
+    { title: 'Week One' },
+    { title: 'Week Two' },
+    { title: 'Week Three' },
+    { title: 'Week Four' },
   ];
 
   const faqs: FaqItem[] = [
@@ -125,30 +121,25 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       {/* 1. HERO SECTION */}
       <section className="relative pt-8 sm:pt-14 pb-12 sm:pb-20 overflow-hidden" id="hero-section">
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Logo + Title */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <Logo size="lg" />
-            </div>
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
+          {/* Title with background image */}
+          <div
+            className="relative overflow-hidden rounded-xl border border-slate-800 bg-cover bg-center p-6 sm:p-10 min-h-[20rem] sm:min-h-[26rem] flex flex-col justify-center space-y-3"
+            style={{ backgroundImage: "url('/homepage.png')" }}
+          >
+            <div className="absolute inset-0 bg-black/45" />
+            <h1 className="relative z-10 text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12] [text-shadow:0_1px_6px_rgba(0,0,0,0.8)]">
               Master Professional Trading With Elite One-To-One Mentorship.
             </h1>
-            <p className="text-lg sm:text-xl font-medium text-blue-400 tracking-tight">
+            <p className="relative z-10 text-lg sm:text-xl font-medium text-blue-300 tracking-tight [text-shadow:0_1px_6px_rgba(0,0,0,0.8)]">
               Teaching Retail Traders to trade like the institutions.
             </p>
           </div>
 
           {/* Intro Paragraphs */}
           <div className="space-y-4 text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl mt-6">
-            <div
-              className="relative overflow-hidden rounded-xl border border-slate-800 bg-cover bg-center p-6 sm:p-8"
-              style={{ backgroundImage: "url('/homepage.png')" }}
-            >
-              <div className="absolute inset-0 bg-black/45" />
-              <p className="relative z-10 text-white [text-shadow:0_1px_4px_rgba(0,0,0,0.8)]">
-                Welcome to Hedge Trading Academy one-to-one mentorship. Whether you are a beginner looking to understand the fundamentals of hedging, an experienced trader considering new strategies, or an investor looking to protect your capital, our structured one-to-one mentorship programme is designed to help you trade with confidence.
-              </p>
-            </div>
+            <p>
+              Welcome to Hedge Trading Academy one-to-one mentorship. Whether you are a beginner looking to understand the fundamentals of hedging, an experienced trader considering new strategies, or an investor looking to protect your capital, our structured one-to-one mentorship programme is designed to help you trade with confidence.
+            </p>
             <p className="text-slate-400">
               What makes us different is that we teach pit logic combined with professional hedging strategy, rather than just academic theories. We will give you the skills to use a floor trader mindset to decide when to enter trades and the knowledge of how to apply hedging to manage trades. This will enable you to maintain total control of risk, manage volatility, and create a more consistent trading approach no matter where the market goes.
             </p>
@@ -265,7 +256,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               </div>
               <div className="text-center">
                 <div className="text-2xl font-extrabold text-white">100%</div>
-                <div className="text-xs text-slate-400 mt-1">Live 1-on-1 Training</div>
+                <div className="text-xs text-slate-400 mt-1">One to One Training</div>
               </div>
             </div>
 
@@ -408,22 +399,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {programmePillars.map((pillar) => {
-              const Icon = pillar.icon;
-              return (
-                <div
-                  key={pillar.title}
-                  className="rounded-xl border border-slate-800 bg-slate-950/60 p-6 flex flex-col items-center text-center gap-4"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-blue-950/40 border border-blue-500/30 flex items-center justify-center text-blue-400">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-base font-bold text-white tracking-tight">
-                    {pillar.title}
-                  </h3>
+            {programmePillars.map((pillar) => (
+              <div
+                key={pillar.title}
+                className="rounded-xl border border-slate-800 bg-slate-950/60 p-6 flex flex-col items-center text-center gap-4"
+              >
+                <div className="w-10 h-10 rounded-lg bg-blue-950/40 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                  <Calendar className="w-5 h-5" />
                 </div>
-              );
-            })}
+                <h3 className="text-base font-bold text-white tracking-tight">
+                  {pillar.title}
+                </h3>
+              </div>
+            ))}
           </div>
         </div>
       </section>
