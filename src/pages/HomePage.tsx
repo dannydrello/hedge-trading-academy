@@ -272,40 +272,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* 5. MENTORSHIP PROGRAMME OVERVIEW */}
-      <section className="relative py-12" id="programme-overview-section">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Mentorship Programme Overview
-            </h2>
-            <p className="text-slate-400 text-base">
-              Four intensive weeks of focused one-to-one mentorship covering every pillar of institutional trade execution and capital defense.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {programmePillars.map((pillar) => (
-              <div
-                key={pillar.title}
-                className="rounded-xl border border-slate-800 bg-slate-950/60 p-6 flex flex-col items-center text-center gap-3"
-              >
-                <div className="w-10 h-10 rounded-lg bg-blue-950/40 border border-blue-500/30 flex items-center justify-center text-blue-400">
-                  <Calendar className="w-5 h-5" />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-widest text-blue-400">
-                  {pillar.week}
-                </span>
-                <h3 className="text-base font-bold text-white tracking-tight">
-                  {pillar.title}
-                </h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. COMPARISON TABLE */}
+      {/* 5. COMPARISON TABLE */}
       <section className="relative py-12" id="comparison-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
@@ -382,7 +349,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* 7. TESTIMONIALS SECTION */}
+      {/* 6. TESTIMONIALS SECTION */}
       <section className="relative py-12" id="testimonials-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
@@ -413,6 +380,39 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   </div>
                   <h4 className="text-sm font-bold text-white">{t.name}</h4>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. MENTORSHIP PROGRAMME OVERVIEW */}
+      <section className="relative py-12" id="programme-overview-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Mentorship Programme Overview
+            </h2>
+            <p className="text-slate-400 text-base">
+              Four intensive weeks of focused one-to-one mentorship covering every pillar of institutional trade execution and capital defense.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {programmePillars.map((pillar) => (
+              <div
+                key={pillar.title}
+                className="rounded-xl border border-slate-800 bg-slate-950/60 p-6 flex flex-col items-center text-center gap-3"
+              >
+                <div className="w-10 h-10 rounded-lg bg-blue-950/40 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                  <Calendar className="w-5 h-5" />
+                </div>
+                <span className="text-xs font-bold uppercase tracking-widest text-blue-400">
+                  {pillar.week}
+                </span>
+                <h3 className="text-base font-bold text-white tracking-tight">
+                  {pillar.title}
+                </h3>
               </div>
             ))}
           </div>
