@@ -12,8 +12,8 @@ import {
   Users,
 } from 'lucide-react';
 
-const WHATSAPP_NUMBER = '447931379380';
-const WHATSAPP_DISPLAY = '+44 7931 379380';
+const WHATSAPP_NUMBER = '447921249547';
+const WHATSAPP_DISPLAY = '+44 7921 249547';
 const APPLICATIONS_EMAIL = 'hello@hedgetradingacademy.com';
 
 interface ApplyPageProps {
@@ -555,16 +555,16 @@ export const ApplyPage: React.FC<ApplyPageProps> = ({ onNavigate }) => {
                   </div>
                 </div>
 
-                {/* WhatsApp Payment CTA */}
+                {/* WhatsApp Follow-Up CTA */}
                 <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi, I just submitted my mentorship application (Ref: ${applicationRef}). I would like to arrange payment to secure my spot.`)}`}
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hi, I just submitted my mentorship application (Ref: ${applicationRef}). I would like to follow up.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  id="success-whatsapp-pay-btn"
+                  id="success-whatsapp-btn"
                   className="max-w-md mx-auto flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-[0_0_20px_rgba(16,185,129,0.3)] transition"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  <span>Message Us on WhatsApp to Arrange Payment</span>
+                  <span>Message Us on WhatsApp</span>
                 </a>
                 <p className="text-xs text-slate-500 -mt-2">
                   WhatsApp: <span className="text-emerald-400">{WHATSAPP_DISPLAY}</span>
